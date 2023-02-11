@@ -1,3 +1,5 @@
+// eslint-disable-next-line 
+import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 
 const backgroundColor = '#C5E4E7';

@@ -1,9 +1,7 @@
+import React from "react";
 import styled from "styled-components";
 import TextDescription from "./TextDescription";
-
-const bgInputColor = '#F4FAFA';
-const placeholderColor = '#719B9D';
-const borderColor = '#26C0AB';
+import { colors } from "./GlobalVariables";
 
 const Div = styled.div`
   display: flex;
@@ -13,7 +11,7 @@ const Div = styled.div`
 
 const Input = styled.input`
   border: none;
-  background-color: ${bgInputColor};
+  background-color: ${colors.bgInputColor};
   padding: .5rem;
 
   background-image: url(${props => props.icon});
@@ -31,11 +29,11 @@ const Input = styled.input`
   font-size: 1.2rem;
 
   &::placeholder {
-   color: ${placeholderColor};
+   color: ${colors.placeholderColor};
   }
 
   &:focus {
-    border: 2px solid ${borderColor};
+    border: 2px solid ${colors.borderColor};
   }
 `;
 

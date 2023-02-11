@@ -1,14 +1,11 @@
+import React from "react";
 import styled from "styled-components";
-
-const buttonColor = '#00494D';
-const textColor = '#FFF';
-const hoverBackgroundColor = '#26C0AB';
-const hoverTextColor = '#00494D';
+import { colors } from "./GlobalVariables";
 
 const Button = styled.button`
-  background-color: ${buttonColor};
+  background-color: ${colors.buttonColor};
   border: none;
-  color: ${textColor};
+  color: ${colors.textColorButton};
   font-weight: bold;
   text-align: center;
   padding: .5rem;
@@ -18,14 +15,16 @@ const Button = styled.button`
   transition: all .3s;
 
   &:hover {
-    background-color: ${hoverBackgroundColor};
-    color: ${hoverTextColor}
+    background-color: ${colors.hoverBackgroundColor};
+    color: ${colors.hoverTextColor};
   }
 `;
 
 const ButtonTip = (props) => {
-  return(
-    <Button> {props.text} </Button>
+  return(  
+    <>
+      <Button> {props.text} </Button>
+    </>
   );
 };
 

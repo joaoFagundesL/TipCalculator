@@ -1,10 +1,8 @@
 import React from 'react';
 import styled from "styled-components";
 
-const textColor = '#7F9C9F';
-
 const Text = styled.p`
-  color: ${textColor};
+  color: var(--textColor);
   font-weight: bold;
 `;
 
