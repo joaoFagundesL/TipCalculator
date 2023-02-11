@@ -8,6 +8,7 @@ const borderColor = '#26C0AB';
 const Div = styled.div`
   display: flex;
   flex-direction: column;
+  margin-top: 2rem;
 `;
 
 const Input = styled.input`

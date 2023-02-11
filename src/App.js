@@ -19,8 +19,9 @@ function App() {
 
       <Container>
         <InputSection icon={iconDollar} text="Bill"></InputSection>
-
         <TipSection></TipSection>
+        <InputSection icon={iconPerson} text="Number of People"></InputSection>
+
       </Container>
     </>
   );
