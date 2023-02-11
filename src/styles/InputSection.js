@@ -1,14 +1,9 @@
 import styled from "styled-components";
+import TextDescription from "./TextDescription";
 
-const textColor = '#7F9C9F';
 const bgInputColor = '#F4FAFA';
 const placeholderColor = '#719B9D';
 const borderColor = '#26C0AB';
-
-const Text = styled.p`
-  color: ${textColor};
-  font-weight: bold;
-`;
 
 const Div = styled.div`
   display: flex;
@@ -46,7 +41,7 @@ const Input = styled.input`
 const InputSection = (props) => {
   return(
     <Div>
-      <Text> {props.text} </Text>
+      <TextDescription text={props.text}></TextDescription>
       <Input type='text' icon={props.icon} placeholder="0"></Input>
     </Div>
   )

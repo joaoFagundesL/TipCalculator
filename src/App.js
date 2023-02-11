@@ -5,6 +5,7 @@ import Header from "./styles/Header";
 import InputSection from "./styles/InputSection";
 import iconDollar from './images/icon-dollar.svg';
 import iconPerson from './images/icon-person.svg';
+import TipSection from "./styles/TipSection";
 
 
 function App() {
@@ -18,6 +19,8 @@ function App() {
 
       <Container>
         <InputSection icon={iconDollar} text="Bill"></InputSection>
+
+        <TipSection></TipSection>
       </Container>
     </>
   );
