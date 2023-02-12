@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import TextDescription from "./TextDescription";
 import ButtonTip from "./ButtonTip";
+import InputCustom from "./InputCustom";
 import React from "react";
 
 const Container = styled.div`
@@ -26,6 +27,7 @@ const TipSection = () => {
           <ButtonTip text='15%'></ButtonTip>
           <ButtonTip text='25%'></ButtonTip>
           <ButtonTip text='50%'></ButtonTip>
+          <InputCustom text="Custom"></InputCustom>
         </DivTips>
       </Container>
     </>

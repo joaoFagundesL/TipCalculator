@@ -1,17 +1,17 @@
 import React from "react";
 import styled from "styled-components";
-import { colors } from "./GlobalVariables";
+import { colors, buttonTipSettings } from "./GlobalVariables";
 
 const Button = styled.button`
   background-color: ${colors.buttonColor};
   border: none;
   color: ${colors.textColorButton};
-  font-weight: bold;
+  font-weight: ${buttonTipSettings.boldText};
   text-align: center;
-  padding: .5rem;
+  padding: ${buttonTipSettings.paddingButton};
   cursor: pointer;
-  border-radius: .5rem;
-  font-size: 1.3rem;
+  border-radius: ${buttonTipSettings.borderRadius};
+  font-size: ${buttonTipSettings.buttonTextSize};
   transition: all .3s;
 
   &:hover {

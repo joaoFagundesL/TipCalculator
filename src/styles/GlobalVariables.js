@@ -13,3 +13,10 @@ export const colors = {
   hoverTextColor: '#00494D',
   resetInactive: '#0d686d',
 };
+
+export const buttonTipSettings = {
+  borderRadius: '.5rem',
+  boldText: 'bold',
+  paddingButton: '.5rem',
+  buttonTextSize: '1.3rem',
+};

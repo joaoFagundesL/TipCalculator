@@ -11,7 +11,6 @@ const Container = styled.div `
   padding-inline: 2rem;
   padding-top: 2rem;
   padding-bottom: 4rem;
-
 `;
 
 export default Container;
