@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import TextDescription from "./TextDescription";
 import { colors } from "./GlobalVariables";
@@ -21,6 +21,7 @@ const Input = styled.input`
   padding: .5rem 1rem .5rem 2rem;
 
   outline: 0;
+  color: ${colors.buttonColor};
 
   border-radius: 5px;
 
@@ -38,10 +39,28 @@ const Input = styled.input`
 `;
 
 const InputSection = (props) => {
+  const [inputValue, setValue] = useState('');
+
+  const inputChange = (event) => {
+    setValue(event.target.value);
+  }
+
+  const handleKey = (event) => {
+    if(event.key == 'Enter') {
+      props.onEnter(inputValue);
+    }
+  }
+
   return(
     <Div>
       <TextDescription text={props.text}></TextDescription>
-      <Input type='text' icon={props.icon} placeholder="0"></Input>
+      <Input type='text'
+        icon={props.icon}
+        placeholder="0"
+        value={inputValue}
+        onChange={inputChange}
+        onKeyDown={handleKey}
+        ></Input>
     </Div>
   )
 }

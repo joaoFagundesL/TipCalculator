@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import GlobalStyle from "./styles/globalStyles";
 import Container from './styles/Container';
 import SpliterText from "./styles/SpliterText";
@@ -13,6 +13,18 @@ import ResetButton from "./styles/ResetButton";
 
 
 function App() {
+
+  const [bill, setBill] = useState('0');
+  const [people, setPeople] = useState('0');
+
+  const handleBill = (value) => {
+    setBill(value);
+  }
+
+  const handlePeople = (value) => {
+    setPeople(value);
+  }
+
   return (
     <>
       <GlobalStyle />
@@ -22,12 +34,25 @@ function App() {
       </Header>
 
       <Container>
-        <InputSection icon={iconDollar} text="Bill"></InputSection>
+        <InputSection icon={iconDollar}
+         text="Bill"
+         onEnter={handleBill}
+         ></InputSection>
+
         <TipSection></TipSection>
-        <InputSection icon={iconPerson} text="Number of People"></InputSection>
+
+        <InputSection icon={iconPerson}
+         text="Number of People"
+         onEnter={handlePeople}
+         ></InputSection>
+
         <SectionCalc>
-          <InfoCalc text="Tip Amount/" amount="$0.00"></InfoCalc>
-          <InfoCalc text="Total/" amount="$0.00"></InfoCalc>
+          <InfoCalc text="Tip Amount/" amount={bill}></InfoCalc>
+
+          <InfoCalc text="Total/"
+           amount={people}
+           ></InfoCalc>
+
           <ResetButton></ResetButton>
         </SectionCalc>
       </Container>
