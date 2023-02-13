@@ -20,13 +20,24 @@ const Input = styled.input`
 const InputCustom = (props) => {
   
   const {inputValue, handleKey, handleValue} = useContext(CustomTipContext);
+  
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      props.setEnter();
+    }
+  };
+
+  const handleCombinedKeyDown = (event) => {
+    handleKey(event);
+    handleKeyDown(event);
+  };
 
   return (
     <Input type="text"
       placeholder={props.text}
       value={inputValue}
       onChange={handleValue}
-      onKeyDown={handleKey}
+      // onKeyDown={handleCombinedKeyDown}
     ></Input>
   );
 };

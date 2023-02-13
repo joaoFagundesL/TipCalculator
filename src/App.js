@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import GlobalStyle from "./styles/globalStyles";
 import Container from './styles/Container';
 import SpliterText from "./styles/SpliterText";
@@ -15,24 +15,33 @@ import { CustomTipContext } from "./contexts/CustomTipContext";
 function App() {
   const [bill, setBill] = useState(0);
   const [people, setPeople] = useState(0);
-  const [teste, setTest] = useState(false);
   const [total, setTotal] = useState(0);
+  const [enterKey, setEnterKey] = useState(false);
+
+  const handleEnterKey = () =>{
+    console.log('Changing the enterKey...')
+    setEnterKey(!enterKey);
+  }
 
   const { inputValue } = useContext(CustomTipContext);
 
-  const handleTest = (value) => {
-    setTest(value);
-
-    if (value && bill && people && inputValue) {
+  useEffect(() => {
+    if (enterKey && bill && people && inputValue) {
+      console.log('entered if')
       let billAmount = parseFloat(bill);
       let tipPercentage = parseFloat(inputValue) / 100;
       let tipAmount = billAmount * tipPercentage;
       let totalAmount = billAmount + tipAmount; 
       setTotal((totalAmount / people).toFixed(2));
+      handleEnterKey();
     } else {
-      console.log('value/bill/people wrong');
+      console.log('enterKey = ' + enterKey);
+      // console.log('bill = ' + bill)
+      // console.log('people = ' + people)
+      // console.log('inputValue = ' + inputValue);
     }
-  }
+  }, [enterKey, bill, people, inputValue]);
+  
 
   const handleBill = (value) => {
     setBill(value);
@@ -54,15 +63,15 @@ function App() {
           <InputSection icon={iconDollar}
             text="Bill"
             onEnter={handleBill}
-            testing={handleTest}
+            setKey={handleEnterKey}
           ></InputSection>
 
-          <TipSection></TipSection>
+          <TipSection setKey={handleEnterKey}></TipSection>
 
           <InputSection icon={iconPerson}
             text="Number of People"
             onEnter={handlePeople}
-            testing={handleTest}
+            setKey = {handleEnterKey}
           ></InputSection>
 
           <SectionCalc>
@@ -73,6 +82,7 @@ function App() {
             <ResetButton></ResetButton>
           </SectionCalc>
         </Container>
+      
       
     </>
   );

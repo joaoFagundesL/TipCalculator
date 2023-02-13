@@ -50,7 +50,7 @@ const InputSection = (props) => {
   const handleKey = (event) => {
     if(event.key === 'Enter') {
       props.onEnter(inputValue);
-      props.testing(true);
+      props.setKey(true);
     }
   }
 

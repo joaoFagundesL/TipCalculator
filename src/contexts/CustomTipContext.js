@@ -14,7 +14,7 @@ const CustomTipProvider = (props) => {
   const handleKey = (event) => {
     if(event.key === 'Enter') {
       setValue(inputValue);
-    }
+    } 
   }
 
   const values = {inputValue, handleKey, handleValue};

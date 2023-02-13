@@ -16,19 +16,19 @@ const DivTips = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 `;
 
-const TipSection = () => {
+const TipSection = (props) => {
  
   return(
     <>
       <Container>
         <TextDescription text="Select Tip %"></TextDescription>
         <DivTips>
-          <ButtonTip text='5%' ></ButtonTip>
+          <ButtonTip  text='5%' ></ButtonTip>
           <ButtonTip text='10%'></ButtonTip>
           <ButtonTip text='15%'></ButtonTip>
           <ButtonTip text='25%' ></ButtonTip>
           <ButtonTip text='50%' ></ButtonTip>
-          <InputCustom text="Custom" ></InputCustom>
+          <InputCustom setEnter={props.setKey} text="Custom" ></InputCustom>
         </DivTips>
       </Container>
     </>
