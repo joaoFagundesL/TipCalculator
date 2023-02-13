@@ -21,17 +21,17 @@ const Button = styled.button`
 `;
 
 const ButtonTip = (props) => {
-  const [tip, setTip] = useState(null);
+  // const [tip, setTip] = useState(null);
 
-  const handleValue = () => {
-    let tipValue = props.text;
-    tipValue = tipValue.replace(/\D/g, "");
-    props.click(tipValue);
-  }
+  // const handleValue = () => {
+  //   let tipValue = props.text;
+  //   tipValue = tipValue.replace(/\D/g, "");
+  //   props.click(tipValue);
+  // }
 
   return(  
     <>
-      <Button onClick={() =>handleValue()}> {props.text} </Button>
+      <Button > {props.text} </Button>
     </>
   );
 };

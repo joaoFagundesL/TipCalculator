@@ -17,22 +17,17 @@ const DivTips = styled.div`
 `;
 
 const TipSection = () => {
-  const [value, setValue] = useState(null);
-
-  const handleValue = (value) => {
-    setValue(value);
-  }
-  
+ 
   return(
     <>
       <Container>
         <TextDescription text="Select Tip %"></TextDescription>
         <DivTips>
-          <ButtonTip text='5%'  click={handleValue} ></ButtonTip>
-          <ButtonTip text='10%' click={handleValue} ></ButtonTip>
-          <ButtonTip text='15%' click={handleValue} ></ButtonTip>
-          <ButtonTip text='25%' click={handleValue}></ButtonTip>
-          <ButtonTip text='50%' click={handleValue}></ButtonTip>
+          <ButtonTip text='5%' ></ButtonTip>
+          <ButtonTip text='10%'></ButtonTip>
+          <ButtonTip text='15%'></ButtonTip>
+          <ButtonTip text='25%' ></ButtonTip>
+          <ButtonTip text='50%' ></ButtonTip>
           <InputCustom text="Custom" ></InputCustom>
         </DivTips>
       </Container>

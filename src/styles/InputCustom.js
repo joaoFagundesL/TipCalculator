@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import {colors, buttonTipSettings} from './GlobalVariables';
+import { CustomTipContext } from '../contexts/CustomTipContext';
 
 const Input = styled.input`
   border: none;
@@ -17,19 +18,16 @@ const Input = styled.input`
 `;
 
 const InputCustom = (props) => {
+  
+  const {inputValue, handleKey, handleValue} = useContext(CustomTipContext);
 
-  // const [tip, setTip] = useState('');
-
-  // const handleInput = (event) => {
-  //   setTip(event.target.value);
-  //   console.log(event.target.value);
-  // }
-
-  return(
+  return (
     <Input type="text"
-     placeholder={props.text}
-    //  onChange={handleInput}
-     ></Input>
+      placeholder={props.text}
+      value={inputValue}
+      onChange={handleValue}
+      onKeyDown={handleKey}
+    ></Input>
   );
 };
 
