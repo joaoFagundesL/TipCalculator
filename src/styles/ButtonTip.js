@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import { colors, buttonTipSettings } from "./GlobalVariables";
 
@@ -21,9 +21,17 @@ const Button = styled.button`
 `;
 
 const ButtonTip = (props) => {
+  const [tip, setTip] = useState(null);
+
+  const handleValue = () => {
+    let tipValue = props.text;
+    tipValue = tipValue.replace(/\D/g, "");
+    props.click(tipValue);
+  }
+
   return(  
     <>
-      <Button> {props.text} </Button>
+      <Button onClick={() =>handleValue()}> {props.text} </Button>
     </>
   );
 };

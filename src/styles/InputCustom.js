@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import {colors, buttonTipSettings} from './GlobalVariables';
 
@@ -18,17 +18,17 @@ const Input = styled.input`
 
 const InputCustom = (props) => {
 
-  const [tip, setTip] = useState('');
+  // const [tip, setTip] = useState('');
 
-  const handleInput = (event) => {
-    setTip(event.target.value);
-    console.log(event.target.value);
-  }
+  // const handleInput = (event) => {
+  //   setTip(event.target.value);
+  //   console.log(event.target.value);
+  // }
 
   return(
     <Input type="text"
      placeholder={props.text}
-     onChange={handleInput}
+    //  onChange={handleInput}
      ></Input>
   );
 };

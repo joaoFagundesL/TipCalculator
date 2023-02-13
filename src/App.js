@@ -14,8 +14,21 @@ import ResetButton from "./styles/ResetButton";
 
 function App() {
 
-  const [bill, setBill] = useState('0');
-  const [people, setPeople] = useState('0');
+  const [bill, setBill] = useState(0);
+  const [people, setPeople] = useState(0);
+  const [teste, setTest] = useState(false);
+  const [total, setTotal] = useState(0);
+
+  const handleTest = (value) => {
+    setTest(value);
+
+    if(value && bill && people) {
+      let totalValue = (bill / people).toFixed(2);
+      setTotal(totalValue);
+    } else {
+      console.log('value/bill/people wrong');
+    }
+  }
 
   const handleBill = (value) => {
     setBill(value);
@@ -37,6 +50,7 @@ function App() {
         <InputSection icon={iconDollar}
          text="Bill"
          onEnter={handleBill}
+         testing={handleTest}
          ></InputSection>
 
         <TipSection></TipSection>
@@ -44,14 +58,13 @@ function App() {
         <InputSection icon={iconPerson}
          text="Number of People"
          onEnter={handlePeople}
+         testing={handleTest}
          ></InputSection>
 
         <SectionCalc>
-          <InfoCalc text="Tip Amount/" amount={bill}></InfoCalc>
-
-          <InfoCalc text="Total/"
-           amount={people}
-           ></InfoCalc>
+  
+          <InfoCalc text="Tip Amount/" amount={'$'+total}></InfoCalc> 
+          <InfoCalc text="Total/" amount={'$'+total}></InfoCalc> 
 
           <ResetButton></ResetButton>
         </SectionCalc>

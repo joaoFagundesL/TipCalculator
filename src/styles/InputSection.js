@@ -40,14 +40,17 @@ const Input = styled.input`
 
 const InputSection = (props) => {
   const [inputValue, setValue] = useState('');
+  const [test, setTest] = useState(false);
 
   const inputChange = (event) => {
     setValue(event.target.value);
+    props.onEnter(event.target.value);
   }
 
   const handleKey = (event) => {
-    if(event.key == 'Enter') {
+    if(event.key === 'Enter') {
       props.onEnter(inputValue);
+      props.testing(true);
     }
   }
 
