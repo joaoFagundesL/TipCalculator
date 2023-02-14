@@ -7,9 +7,9 @@ const Text = styled.p`
   font-weight: bold;
 `;
 
-const TextDescription = (props) => {
+const TextDescription = ({ text }) => {
   return(
-    <Text> {props.text} </Text>
+    <Text> {text} </Text>
   );
 };
 

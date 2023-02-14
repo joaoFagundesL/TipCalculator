@@ -18,7 +18,7 @@ const Input = styled.input`
   }
 `;
 
-const InputCustom = (props) => {
+const InputCustom = ({ text }) => {
   
   const {inputValue, handleKey, handleValue} = useContext(CustomTipContext);
   const { enterKey, handleEnterKey } = useContext(HasCalculatedContext);
@@ -31,7 +31,7 @@ const InputCustom = (props) => {
 
   return (
     <Input type="text"
-      placeholder={props.text}
+      placeholder={text}
       value={inputValue}
       onChange={handleValue}
       onKeyDown={handleKeyDown}

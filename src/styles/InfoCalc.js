@@ -31,15 +31,15 @@ const Amount = styled.p`
   font-weight: bold;
 `;
 
-const InfoCalc = (props) => {
+const InfoCalc = ({ text, amount }) => {
   return(
     <Container>
       <Div>
-        <MainText> {props.text} </MainText>
+        <MainText> {text} </MainText>
         <PersonText>person</PersonText>
       </Div>
 
-      <Amount>{props.amount}</Amount>
+      <Amount>{amount}</Amount>
     </Container>
   );
 };

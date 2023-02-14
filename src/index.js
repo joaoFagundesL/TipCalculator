@@ -5,13 +5,16 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import HasCalculatedProvider from './contexts/HasCalculatedContext';
 import CustomTipProvider from "./contexts/CustomTipContext";
+import  ButtonTipProvider  from "./contexts/ButtonTipContext";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <CustomTipProvider>
       <HasCalculatedProvider>
-        <App />
+        <ButtonTipProvider>
+          <App />
+        </ButtonTipProvider>
       </HasCalculatedProvider>
     </CustomTipProvider>
   </React.StrictMode>

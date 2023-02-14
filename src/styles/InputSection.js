@@ -39,7 +39,7 @@ const Input = styled.input`
   }
 `;
 
-const InputSection = (props) => {
+const InputSection = ({ onEnter, icon, text }) => {
   const [inputValue, setValue] = useState('');
   const [test, setTest] = useState(false);
 
@@ -47,21 +47,21 @@ const InputSection = (props) => {
 
   const inputChange = (event) => {
     setValue(event.target.value);
-    props.onEnter(event.target.value);
+    onEnter(event.target.value);
   }
 
   const handleKey = (event) => {
     if(event.key === 'Enter') {
-      props.onEnter(inputValue);
+      onEnter(inputValue);
       handleEnterKey();
     }
   }
 
   return(
     <Div>
-      <TextDescription text={props.text}></TextDescription>
+      <TextDescription text={text}></TextDescription>
       <Input type='text'
-        icon={props.icon}
+        icon={icon}
         placeholder="0"
         value={inputValue}
         onChange={inputChange}

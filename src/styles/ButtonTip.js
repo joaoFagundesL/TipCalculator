@@ -1,6 +1,7 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import styled from "styled-components";
 import { colors, buttonTipSettings } from "./GlobalVariables";
+import { ButtonTipContext } from "../contexts/ButtonTipContext";
 
 const Button = styled.button`
   background-color: ${colors.buttonColor};
@@ -20,18 +21,13 @@ const Button = styled.button`
   }
 `;
 
-const ButtonTip = (props) => {
-  // const [tip, setTip] = useState(null);
+const ButtonTip = ({ text }) => {
 
-  // const handleValue = () => {
-  //   let tipValue = props.text;
-  //   tipValue = tipValue.replace(/\D/g, "");
-  //   props.click(tipValue);
-  // }
+  const {buttonValue, handleClick} = useContext(ButtonTipContext);
 
   return(  
     <>
-      <Button > {props.text} </Button>
+      <Button onClick={(event) => handleClick(event)} > {text} </Button>
     </>
   );
 };

@@ -11,7 +11,7 @@ const HasCalculatedProvider = (props) => {
   }
 
   return(
-    <HasCalculatedContext.Provider value={{enterKey, handleEnterKey}}>
+    <HasCalculatedContext.Provider value={ {enterKey, handleEnterKey} }>
       { props.children }
     </HasCalculatedContext.Provider>
   );

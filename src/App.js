@@ -13,6 +13,7 @@ import InfoCalc from "./styles/InfoCalc";
 import ResetButton from "./styles/ResetButton";
 import { CustomTipContext } from "./contexts/CustomTipContext";
 import { HasCalculatedContext } from "./contexts/HasCalculatedContext";
+import { ButtonTipContext } from "./contexts/ButtonTipContext";
 
 function App() {
   const [bill, setBill] = useState(0);
@@ -21,26 +22,55 @@ function App() {
   const [tipTotal, setTipTotal] = useState(0);
 
   const { enterKey, handleEnterKey } = useContext(HasCalculatedContext);
-  const { inputValue } = useContext(CustomTipContext);
+  const { inputValue, setInputValue, testing } = useContext(CustomTipContext);
+  const { buttonValue, handleClick, isClicked, setBool } = useContext(ButtonTipContext);
   
-  useEffect(() => {
-    if (enterKey && bill && people && inputValue) { // if key is true it will calculate
-      console.log('entered if')
+  const billCalc = (enterKey, bill, people, input) => {
+
+    if (enterKey && bill && people && input) { // if key is true it will calculate
       let billAmount = parseFloat(bill);
-      let tipPercentage = parseFloat(inputValue) / 100;
+      let tipPercentage = parseFloat(input) / 100;
       let tipAmount = billAmount * tipPercentage;
       let totalAmount = billAmount + tipAmount; 
       setTipTotal((tipAmount / people).toFixed(2));
       setTotal((totalAmount / people).toFixed(2));
       handleEnterKey(); // here i set the key to false
-    } else if(!enterKey && !bill && !people && !inputValue){
+      console.log('=====INSIDE========') 
+      console.log('enter = ' + enterKey)
+      console.log('bill = ' + bill)
+      console.log('people = ' + people)
+      console.log('input = ' + input)
+      console.log('===================')
+    } else if(!enterKey && !bill && !people && !input){
+      console.log('=====ELSE IF========') 
+      console.log('enter = ' + enterKey)
+      console.log('bill = ' + bill)
+      console.log('people = ' + people)
+      console.log('input = ' + input)
+      console.log('===================')
       setTotal(0);
       setTipTotal(0);
-    } else {
-      console.log('EnterKey = ' + enterKey);
+    }  else {
+      console.log('=====ELSE========') 
+      console.log('enter = ' + enterKey)
+      console.log('bill = ' + bill)
+      console.log('people = ' + people)
+      console.log('input = ' + input)
+      console.log('===================')
     }
-  }, [enterKey, bill, people, inputValue]); // this avoid re-render multiple times
-  
+  }
+  useEffect(() => {
+    if (isClicked) {
+      billCalc(true, bill, people, buttonValue);
+      setBool();
+      setInputValue('', buttonValue);
+
+    } else {
+      billCalc(enterKey, bill, people, testing);
+    
+    
+    }
+  }, [isClicked, enterKey, bill, people, testing, buttonValue]);
 
   const handleBill = (value) => {
     setBill(value);
@@ -64,8 +94,7 @@ function App() {
             onEnter={handleBill}
           ></InputSection>
 
-          <TipSection 
-          ></TipSection>
+          <TipSection ></TipSection>
 
           <InputSection icon={iconPerson}
             text="Number of People"
@@ -80,8 +109,6 @@ function App() {
             <ResetButton></ResetButton>
           </SectionCalc>
         </Container>
-      
-      
     </>
   );
 }
