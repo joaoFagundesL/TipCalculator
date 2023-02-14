@@ -18,11 +18,11 @@ function App() {
   const [bill, setBill] = useState(0);
   const [people, setPeople] = useState(0);
   const [total, setTotal] = useState(0);
+  const [tipTotal, setTipTotal] = useState(0);
 
   const { enterKey, handleEnterKey } = useContext(HasCalculatedContext);
   const { inputValue } = useContext(CustomTipContext);
   
-
   useEffect(() => {
     if (enterKey && bill && people && inputValue) { // if key is true it will calculate
       console.log('entered if')
@@ -30,10 +30,12 @@ function App() {
       let tipPercentage = parseFloat(inputValue) / 100;
       let tipAmount = billAmount * tipPercentage;
       let totalAmount = billAmount + tipAmount; 
+      setTipTotal((tipAmount / people).toFixed(2));
       setTotal((totalAmount / people).toFixed(2));
       handleEnterKey(); // here i set the key to false
     } else if(!enterKey && !bill && !people && !inputValue){
       setTotal(0);
+      setTipTotal(0);
     } else {
       console.log('EnterKey = ' + enterKey);
     }
@@ -60,22 +62,19 @@ function App() {
           <InputSection icon={iconDollar}
             text="Bill"
             onEnter={handleBill}
-            // setKey={handleEnterKey} // keeping track to set the enterKey as true
           ></InputSection>
 
           <TipSection 
-          // setKey={handleEnterKey}
           ></TipSection>
 
           <InputSection icon={iconPerson}
             text="Number of People"
             onEnter={handlePeople}
-            // setKey = {handleEnterKey} // keeping track to set the enterKey as true
           ></InputSection>
 
           <SectionCalc>
 
-            <InfoCalc text="Tip Amount/" amount={'$' + total}></InfoCalc>
+            <InfoCalc text="Tip Amount/" amount={'$' + tipTotal}></InfoCalc>
             <InfoCalc text="Total/" amount={'$' + total}></InfoCalc>
 
             <ResetButton></ResetButton>

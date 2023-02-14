@@ -57,7 +57,6 @@ const InputSection = (props) => {
     }
   }
 
-
   return(
     <Div>
       <TextDescription text={props.text}></TextDescription>
