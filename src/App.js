@@ -35,35 +35,35 @@ function App() {
       setTipTotal((tipAmount / people).toFixed(2));
       setTotal((totalAmount / people).toFixed(2));
       handleEnterKey(); // here i set the key to false
-      console.log('=====INSIDE========') 
-      console.log('enter = ' + enterKey)
-      console.log('bill = ' + bill)
-      console.log('people = ' + people)
-      console.log('input = ' + input)
-      console.log('===================')
+      // console.log('=====INSIDE========') 
+      // console.log('enter = ' + enterKey)
+      // console.log('bill = ' + bill)
+      // console.log('people = ' + people)
+      // console.log('input = ' + input)
+      // console.log('===================')
     } else if(!enterKey && !bill && !people && !input){
-      console.log('=====ELSE IF========') 
-      console.log('enter = ' + enterKey)
-      console.log('bill = ' + bill)
-      console.log('people = ' + people)
-      console.log('input = ' + input)
-      console.log('===================')
+      // console.log('=====ELSE IF========') 
+      // console.log('enter = ' + enterKey)
+      // console.log('bill = ' + bill)
+      // console.log('people = ' + people)
+      // console.log('input = ' + input)
+      // console.log('===================')
       setTotal(0);
       setTipTotal(0);
     }  else {
-      console.log('=====ELSE========') 
-      console.log('enter = ' + enterKey)
-      console.log('bill = ' + bill)
-      console.log('people = ' + people)
-      console.log('input = ' + input)
-      console.log('===================')
+      // console.log('=====ELSE========') 
+      // console.log('enter = ' + enterKey)
+      // console.log('bill = ' + bill)
+      // console.log('people = ' + people)
+      // console.log('input = ' + input)
+      // console.log('===================')
     }
   }
   useEffect(() => {
     if (isClicked) {
       billCalc(true, bill, people, buttonValue);
       setBool();
-      setInputValue('', buttonValue);
+      setInputValue('', buttonValue); // this part took me 3 hours to come up with
 
     } else {
       billCalc(enterKey, bill, people, testing);

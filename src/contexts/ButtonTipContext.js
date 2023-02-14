@@ -12,6 +12,7 @@ const ButtonTipProvider = (props) => {
     let tipAmount = buttonText.replace(/\D/g, "");
     setButtonValue(tipAmount);
     setIsClicked(true);
+
   }
   
   const setBool = () => {

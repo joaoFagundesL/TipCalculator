@@ -21,8 +21,8 @@ const CustomTipProvider = (props) => {
   }
 
   const setInputValue = (newValue, btn) => {
-    setValue(newValue);
-    setTesting(btn);
+    setValue(newValue); // this one is to display ''
+    setTesting(btn);    // this one to store the value before setting to ''
   }
 
   const values = {inputValue, handleKey, handleValue, setInputValue, testing};
