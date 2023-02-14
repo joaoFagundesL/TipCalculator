@@ -1,4 +1,5 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { useContext } from "react";
 import GlobalStyle from "./styles/globalStyles";
 import Container from './styles/Container';
 import SpliterText from "./styles/SpliterText";
@@ -11,36 +12,32 @@ import SectionCalc from "./styles/SectionCalc";
 import InfoCalc from "./styles/InfoCalc";
 import ResetButton from "./styles/ResetButton";
 import { CustomTipContext } from "./contexts/CustomTipContext";
+import { HasCalculatedContext } from "./contexts/HasCalculatedContext";
 
 function App() {
   const [bill, setBill] = useState(0);
   const [people, setPeople] = useState(0);
   const [total, setTotal] = useState(0);
-  const [enterKey, setEnterKey] = useState(false);
 
-  const handleEnterKey = () =>{
-    console.log('Changing the enterKey...')
-    setEnterKey(!enterKey);
-  }
-
+  const { enterKey, handleEnterKey } = useContext(HasCalculatedContext);
   const { inputValue } = useContext(CustomTipContext);
+  
 
   useEffect(() => {
-    if (enterKey && bill && people && inputValue) {
+    if (enterKey && bill && people && inputValue) { // if key is true it will calculate
       console.log('entered if')
       let billAmount = parseFloat(bill);
       let tipPercentage = parseFloat(inputValue) / 100;
       let tipAmount = billAmount * tipPercentage;
       let totalAmount = billAmount + tipAmount; 
       setTotal((totalAmount / people).toFixed(2));
-      handleEnterKey();
+      handleEnterKey(); // here i set the key to false
+    } else if(!enterKey && !bill && !people && !inputValue){
+      setTotal(0);
     } else {
-      console.log('enterKey = ' + enterKey);
-      // console.log('bill = ' + bill)
-      // console.log('people = ' + people)
-      // console.log('inputValue = ' + inputValue);
+      console.log('EnterKey = ' + enterKey);
     }
-  }, [enterKey, bill, people, inputValue]);
+  }, [enterKey, bill, people, inputValue]); // this avoid re-render multiple times
   
 
   const handleBill = (value) => {
@@ -58,20 +55,22 @@ function App() {
         <Header>
           <SpliterText>Spli<br />tter</SpliterText>
         </Header>
-
+      
         <Container>
           <InputSection icon={iconDollar}
             text="Bill"
             onEnter={handleBill}
-            setKey={handleEnterKey}
+            // setKey={handleEnterKey} // keeping track to set the enterKey as true
           ></InputSection>
 
-          <TipSection setKey={handleEnterKey}></TipSection>
+          <TipSection 
+          // setKey={handleEnterKey}
+          ></TipSection>
 
           <InputSection icon={iconPerson}
             text="Number of People"
             onEnter={handlePeople}
-            setKey = {handleEnterKey}
+            // setKey = {handleEnterKey} // keeping track to set the enterKey as true
           ></InputSection>
 
           <SectionCalc>

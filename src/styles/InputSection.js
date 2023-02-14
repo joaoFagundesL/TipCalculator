@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import TextDescription from "./TextDescription";
 import { colors } from "./GlobalVariables";
+import { HasCalculatedContext } from '../contexts/HasCalculatedContext';
 
 const Div = styled.div`
   display: flex;
@@ -42,6 +43,8 @@ const InputSection = (props) => {
   const [inputValue, setValue] = useState('');
   const [test, setTest] = useState(false);
 
+  const {enterKey, handleEnterKey} = useContext(HasCalculatedContext);
+
   const inputChange = (event) => {
     setValue(event.target.value);
     props.onEnter(event.target.value);
@@ -50,9 +53,10 @@ const InputSection = (props) => {
   const handleKey = (event) => {
     if(event.key === 'Enter') {
       props.onEnter(inputValue);
-      props.setKey(true);
+      handleEnterKey();
     }
   }
+
 
   return(
     <Div>

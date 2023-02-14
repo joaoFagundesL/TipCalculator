@@ -3,14 +3,16 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import HasCalculatedProvider from './contexts/HasCalculatedContext';
 import CustomTipProvider from "./contexts/CustomTipContext";
-
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <CustomTipProvider>
+      <HasCalculatedProvider>
         <App />
+      </HasCalculatedProvider>
     </CustomTipProvider>
   </React.StrictMode>
 );

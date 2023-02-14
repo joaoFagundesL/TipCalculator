@@ -28,7 +28,9 @@ const TipSection = (props) => {
           <ButtonTip text='15%'></ButtonTip>
           <ButtonTip text='25%' ></ButtonTip>
           <ButtonTip text='50%' ></ButtonTip>
-          <InputCustom setEnter={props.setKey} text="Custom" ></InputCustom>
+          <InputCustom 
+          // setEnter={props.setKey} 
+          text="Custom" ></InputCustom>
         </DivTips>
       </Container>
     </>

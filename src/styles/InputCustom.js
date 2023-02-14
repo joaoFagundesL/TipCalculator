@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import {colors, buttonTipSettings} from './GlobalVariables';
 import { CustomTipContext } from '../contexts/CustomTipContext';
+import { HasCalculatedContext } from '../contexts/HasCalculatedContext';
 
 const Input = styled.input`
   border: none;
@@ -20,24 +21,20 @@ const Input = styled.input`
 const InputCustom = (props) => {
   
   const {inputValue, handleKey, handleValue} = useContext(CustomTipContext);
-  
-  const handleKeyDown = (event) => {
-    if (event.key === 'Enter') {
-      props.setEnter();
-    }
-  };
+  const { enterKey, handleEnterKey } = useContext(HasCalculatedContext);
 
-  const handleCombinedKeyDown = (event) => {
-    handleKey(event);
-    handleKeyDown(event);
-  };
+  const handleKeyDown = (event) => {
+    if(event.key == 'Enter') {
+      handleEnterKey();
+    }
+  }
 
   return (
     <Input type="text"
       placeholder={props.text}
       value={inputValue}
       onChange={handleValue}
-      // onKeyDown={handleCombinedKeyDown}
+      onKeyDown={handleKeyDown}
     ></Input>
   );
 };
