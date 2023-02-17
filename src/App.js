@@ -12,7 +12,7 @@ import SectionCalc from "./styles/SectionCalc";
 import InfoCalc from "./styles/InfoCalc";
 import ResetButton from "./styles/ResetButton";
 import { CustomTipContext } from "./contexts/CustomTipContext";
-// import { HasCalculatedContext } from "./contexts/HasCalculatedContext";
+import Wrapper from "./styles/Wrapper";
 import { ButtonTipContext } from "./contexts/ButtonTipContext";
 import ResetProvider from "./contexts/ResetContext";
 
@@ -96,19 +96,21 @@ function App() {
       </Header>
 
       <Container>
-        <InputSection
-          icon={iconDollar}
-          text="Bill"
-          onEnter={handleBill}
-        ></InputSection>
+        <Wrapper>
+          <InputSection
+            icon={iconDollar}
+            text="Bill"
+            onEnter={handleBill}
+          ></InputSection>
 
-        <TipSection></TipSection>
+          <TipSection></TipSection>
 
-        <InputSection
-          icon={iconPerson}
-          text="Number of People"
-          onEnter={handlePeople}
-        ></InputSection>
+          <InputSection
+            icon={iconPerson}
+            text="Number of People"
+            onEnter={handlePeople}
+          ></InputSection>
+        </Wrapper>
 
         <SectionCalc>
           <InfoCalc text="Tip Amount/" amount={"$" + tipTotal}></InfoCalc>

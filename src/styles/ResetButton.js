@@ -24,6 +24,10 @@ const Button = styled.button`
       cursor: pointer !important;
     }
   }
+
+  @media (min-width: 768px) {
+    margin-top: auto;
+  }
 `;
 
 const ResetButton = ({ bill, people, reset }) => {

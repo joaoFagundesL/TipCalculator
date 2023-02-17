@@ -1,10 +1,10 @@
-// eslint-disable-next-line 
-import React from 'react';
-import { createGlobalStyle } from 'styled-components';
+// eslint-disable-next-line
+import React from "react";
+import { createGlobalStyle } from "styled-components";
 
-const backgroundColor = '#C5E4E7';
+const backgroundColor = "#C5E4E7";
 
-const GlobalStyle = createGlobalStyle `
+const GlobalStyle = createGlobalStyle`
 *,
 *::before,
 *::after {
@@ -39,6 +39,15 @@ body {
   line-height: 1.5;
   font-family: 'Space Mono', monospace
 }
+
+@media (min-width: 768px) {
+  body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ }
+}
+
 
 a:not([class]) {
   text-decoration-skip-ink: auto;

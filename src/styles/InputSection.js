@@ -9,10 +9,14 @@ const Div = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 2rem;
+
+  @media (min-width: 768px) {
+    margin-top: 0rem;
+  }
 `;
 
 const Input = styled.input`
-  border: none;
+  border: 2px solid transparent;
   background-color: ${colors.bgInputColor};
   padding: 0.5rem;
 

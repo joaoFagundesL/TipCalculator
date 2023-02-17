@@ -14,6 +14,10 @@ const DivTips = styled.div`
   display: grid;
   gap: 0.8rem;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+
+  @media (min-width: 768px) {
+    margin-bottom: 2rem;
+  }
 `;
 
 const TipSection = (props) => {
