@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import { colors, buttonTipSettings } from "./GlobalVariables";
 import { ButtonTipContext } from "../contexts/ButtonTipContext";
+import { ResetContext } from "../contexts/ResetContext";
 
 const Button = styled.button`
   background-color: ${colors.buttonColor};
@@ -26,7 +27,9 @@ const Button = styled.button`
 `;
 
 const ButtonTip = ({ text }) => {
-  const { handleClick, updateButtons } = useContext(ButtonTipContext);
+  const { handleClick, updateButtons, removeActive } =
+    useContext(ButtonTipContext);
+  const { isClicked } = useContext(ResetContext);
 
   const [isActive, setIsActive] = useState(false);
 
@@ -57,6 +60,10 @@ const ButtonTip = ({ text }) => {
     buttons = Object.values(buttons);
     updateButtons(buttons);
   };
+
+  if (isClicked) {
+    removeActive();
+  }
 
   return (
     <>

@@ -47,7 +47,7 @@ const InputSection = ({ onEnter, icon, text }) => {
   const [inputValue, setValue] = useState("");
 
   const { handleEnterKey } = useContext(HasCalculatedContext);
-  const { isClicked, handleClicked } = useContext(ResetContext); // to know if the is clicked or not
+  const { isClicked, handleClicked } = useContext(ResetContext); // to know if the button is clicked or not
 
   const input = useRef(null);
 

@@ -11,15 +11,15 @@ import ResetProvider from "./contexts/ResetContext";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <CustomTipProvider>
-      <HasCalculatedProvider>
-        <ButtonTipProvider>
-          <ResetProvider>
+    <ResetProvider>
+      <CustomTipProvider>
+        <HasCalculatedProvider>
+          <ButtonTipProvider>
             <App />
-          </ResetProvider>
-        </ButtonTipProvider>
-      </HasCalculatedProvider>
-    </CustomTipProvider>
+          </ButtonTipProvider>
+        </HasCalculatedProvider>
+      </CustomTipProvider>
+    </ResetProvider>
   </React.StrictMode>
 );
 

@@ -8,10 +8,12 @@ const ButtonTipProvider = (props) => {
   const [buttons, setButtons] = useState([]);
 
   const updateButtons = (myButtons) => {
+    // getting all the buttons from ButtonTip.js
     setButtons(myButtons);
   };
 
   const removeActive = () => {
+    // function in case i need to remove the active button
     buttons.forEach((button) => {
       if (button.classList.contains("clicked")) {
         button.classList.remove("clicked");
@@ -21,7 +23,7 @@ const ButtonTipProvider = (props) => {
 
   const handleClick = (event) => {
     let buttonText = event.target.innerText;
-    let tipAmount = buttonText.replace(/\D/g, "");
+    let tipAmount = buttonText.replace(/\D/g, ""); // getting only the number from the button, without the %
     setButtonValue(tipAmount);
     setIsClicked(true);
   };
