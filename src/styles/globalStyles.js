@@ -43,11 +43,14 @@ body {
 @media (min-width: 768px) {
   body {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
  }
 }
 
+#root {
+  width: 100vw;
+}
 
 a:not([class]) {
   text-decoration-skip-ink: auto;
