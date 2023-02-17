@@ -14,13 +14,10 @@ const Button = styled.button`
   border-radius: ${buttonTipSettings.borderRadius};
   font-size: ${buttonTipSettings.buttonTextSize};
   transition: all 0.3s;
-
   &.clicked {
     background-color: ${colors.hoverBackgroundColor} !important;
-
     color: ${colors.hoverTextColor} !important;
   }
-
   &:hover {
     background-color: ${colors.hoverBackgroundColor};
     color: ${colors.hoverTextColor};
@@ -28,8 +25,7 @@ const Button = styled.button`
 `;
 
 const ButtonTip = ({ text }) => {
-  const { handleClick, isClicked, updateButtons } =
-    useContext(ButtonTipContext);
+  const { handleClick, updateButtons } = useContext(ButtonTipContext);
 
   const [isActive, setIsActive] = useState(false);
 

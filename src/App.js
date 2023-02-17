@@ -18,18 +18,15 @@ import { ButtonTipContext } from "./contexts/ButtonTipContext";
 function App() {
   const [bill, setBill] = useState(0);
   const [people, setPeople] = useState(0);
-  const [total, setTotal] = useState(0);
-  const [tipTotal, setTipTotal] = useState(0);
+  const [total, setTotal] = useState("0.00");
+  const [tipTotal, setTipTotal] = useState("0.00");
 
   const { inputValue, setInputValue, testing } = useContext(CustomTipContext);
-  const { buttonValue, removeActive, handleClick, isClicked, setBool } =
+  const { buttonValue, removeActive, isClicked, setBool } =
     useContext(ButtonTipContext);
 
   const billCalc = (bill, people, input) => {
-    // console.log("bill = " + bill);
-    // console.log("people = " + people);
-    // console.log("input = " + input);
-
+    console.log("Input = " + input);
     if (bill && people && input) {
       let billAmount = parseFloat(bill);
       let tipPercentage = parseFloat(input) / 100;
@@ -38,11 +35,14 @@ function App() {
       setTipTotal((tipAmount / people).toFixed(2));
       setTotal((totalAmount / people).toFixed(2));
     } else if (!bill && !people && !input) {
-      setTotal(0);
-      setTipTotal(0);
+      setTotal("0.00");
+      setTipTotal("0.00");
     } else if (bill && people && !input) {
-      setTotal(0);
-      setTipTotal(0);
+      setTotal((bill / people).toFixed(2));
+      setTipTotal("0.00");
+    } else if (!bill || !people) {
+      setTotal("0.00");
+      setTipTotal("0.00");
     }
   };
 
