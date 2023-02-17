@@ -14,6 +14,7 @@ const Button = styled.button`
   border-radius: ${buttonTipSettings.borderRadius};
   font-size: ${buttonTipSettings.buttonTextSize};
   transition: all 0.3s;
+
   &.clicked {
     background-color: ${colors.hoverBackgroundColor} !important;
     color: ${colors.hoverTextColor} !important;

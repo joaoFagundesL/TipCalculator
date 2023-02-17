@@ -1,8 +1,9 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import TextDescription from "./TextDescription";
 import { colors } from "./GlobalVariables";
 import { HasCalculatedContext } from "../contexts/HasCalculatedContext";
+import { ResetContext } from "../contexts/ResetContext";
 
 const Div = styled.div`
   display: flex;
@@ -46,6 +47,8 @@ const InputSection = ({ onEnter, icon, text }) => {
   const [inputValue, setValue] = useState("");
 
   const { handleEnterKey } = useContext(HasCalculatedContext);
+  const { isClicked, handleClicked } = useContext(ResetContext); // to know if the is clicked or not
+
   const input = useRef(null);
 
   const inputChange = (event) => {
@@ -64,6 +67,15 @@ const InputSection = ({ onEnter, icon, text }) => {
       handleEnterKey();
     }
   };
+
+  useEffect(() => {
+    if (isClicked) {
+      // If the reset button is clicked
+      setValue("");
+      onEnter(""); // updating the bill/people directly in the App.js. Sending the result to the App.js
+      handleClicked(); // making sure that the button will be false after the click
+    }
+  }, [isClicked]); // to avoid re-render too many times.
 
   return (
     <Div>

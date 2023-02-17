@@ -1,19 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import HasCalculatedProvider from './contexts/HasCalculatedContext';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import HasCalculatedProvider from "./contexts/HasCalculatedContext";
 import CustomTipProvider from "./contexts/CustomTipContext";
-import  ButtonTipProvider  from "./contexts/ButtonTipContext";
+import ButtonTipProvider from "./contexts/ButtonTipContext";
+import ResetProvider from "./contexts/ResetContext";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <CustomTipProvider>
       <HasCalculatedProvider>
         <ButtonTipProvider>
-          <App />
+          <ResetProvider>
+            <App />
+          </ResetProvider>
         </ButtonTipProvider>
       </HasCalculatedProvider>
     </CustomTipProvider>

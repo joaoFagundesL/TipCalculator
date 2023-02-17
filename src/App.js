@@ -14,6 +14,7 @@ import ResetButton from "./styles/ResetButton";
 import { CustomTipContext } from "./contexts/CustomTipContext";
 // import { HasCalculatedContext } from "./contexts/HasCalculatedContext";
 import { ButtonTipContext } from "./contexts/ButtonTipContext";
+import ResetProvider from "./contexts/ResetContext";
 
 function App() {
   const [bill, setBill] = useState(0);
@@ -26,7 +27,10 @@ function App() {
     useContext(ButtonTipContext);
 
   const billCalc = (bill, people, input) => {
-    console.log("Input = " + input);
+    // console.log("Input = " + input);
+    // console.log("People = " + people);
+    // console.log("Bill = " + bill);
+
     if (bill && people && input) {
       let billAmount = parseFloat(bill);
       let tipPercentage = parseFloat(input) / 100;
@@ -74,6 +78,11 @@ function App() {
     setPeople(value);
   };
 
+  const handleResetClick = () => {
+    setTotal("0.00");
+    setTipTotal("0.00");
+  };
+
   return (
     <>
       <GlobalStyle />
@@ -105,7 +114,11 @@ function App() {
           <InfoCalc text="Tip Amount/" amount={"$" + tipTotal}></InfoCalc>
           <InfoCalc text="Total/" amount={"$" + total}></InfoCalc>
 
-          <ResetButton></ResetButton>
+          <ResetButton
+            reset={handleResetClick}
+            bill={bill}
+            people={people}
+          ></ResetButton>
         </SectionCalc>
       </Container>
     </>
