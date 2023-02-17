@@ -14,8 +14,15 @@ const Button = styled.button`
   padding-block: 1rem;
   background-color: ${colors.resetInactive};
 
+  &:hover {
+    cursor: not-allowed;
+  }
+
   &.active {
     background-color: ${colors.hoverBackgroundColor};
+    &:hover {
+      cursor: pointer !important;
+    }
   }
 `;
 
