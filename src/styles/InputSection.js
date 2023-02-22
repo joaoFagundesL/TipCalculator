@@ -23,7 +23,7 @@ const Input = styled.input`
   background-image: url(${(props) => props.icon});
   background-repeat: no-repeat;
   background-size: 12px;
-  background-position: 1.2rem center;
+  background-position: left 1rem center;
   padding: 0.5rem 1rem 0.5rem 2rem;
 
   outline: 0;
